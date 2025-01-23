@@ -1,0 +1,182 @@
+<html>
+<head>
+    <title>Subnetting Cheatsheet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Subnetting Cheatsheet</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="hover:underline">Home</a></li>
+                    <li><a href="#" class="hover:underline">About</a></li>
+                    <li><a href="#" class="hover:underline">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container mx-auto p-4">
+        <section class="bg-white p-6 rounded-lg shadow-lg mb-6">
+            <h2 class="text-xl font-bold mb-4">Learn Subnetting IPv4 with Ease</h2>
+            <table class="min-w-full bg-white">
+                <thead>
+                    <tr>
+                        <th class="py-2 px-4 bg-gray-200">CIDR</th>
+                        <th class="py-2 px-4 bg-gray-200">Subnet Mask</th>
+                        <th class="py-2 px-4 bg-gray-200">Network</th>
+                        <th class="py-2 px-4 bg-gray-200">First Host</th>
+                        <th class="py-2 px-4 bg-gray-200">Last Host</th>
+                        <th class="py-2 px-4 bg-gray-200">Broadcast</th>
+                        <th class="py-2 px-4 bg-gray-200">Next Subnet</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border px-4 py-2">/24</td>
+                        <td class="border px-4 py-2">255.255.255.0</td>
+                        <td class="border px-4 py-2">192.168.1.0</td>
+                        <td class="border px-4 py-2">192.168.1.1</td>
+                        <td class="border px-4 py-2">192.168.1.254</td>
+                        <td class="border px-4 py-2">192.168.1.255</td>
+                        <td class="border px-4 py-2">192.168.2.0</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-4 py-2">/25</td>
+                        <td class="border px-4 py-2">255.255.255.128</td>
+                        <td class="border px-4 py-2">192.168.1.0</td>
+                        <td class="border px-4 py-2">192.168.1.1</td>
+                        <td class="border px-4 py-2">192.168.1.126</td>
+                        <td class="border px-4 py-2">192.168.1.127</td>
+                        <td class="border px-4 py-2">192.168.1.128</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-4 py-2">/26</td>
+                        <td class="border px-4 py-2">255.255.255.192</td>
+                        <td class="border px-4 py-2">192.168.1.0</td>
+                        <td class="border px-4 py-2">192.168.1.1</td>
+                        <td class="border px-4 py-2">192.168.1.62</td>
+                        <td class="border px-4 py-2">192.168.1.63</td>
+                        <td class="border px-4 py-2">192.168.1.64</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-4 py-2">/27</td>
+                        <td class="border px-4 py-2">255.255.255.224</td>
+                        <td class="border px-4 py-2">192.168.1.0</td>
+                        <td class="border px-4 py-2">192.168.1.1</td>
+                        <td class="border px-4 py-2">192.168.1.30</td>
+                        <td class="border px-4 py-2">192.168.1.31</td>
+                        <td class="border px-4 py-2">192.168.1.32</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-4 py-2">/28</td>
+                        <td class="border px-4 py-2">255.255.255.240</td>
+                        <td class="border px-4 py-2">192.168.1.0</td>
+                        <td class="border px-4 py-2">192.168.1.1</td>
+                        <td class="border px-4 py-2">192.168.1.14</td>
+                        <td class="border px-4 py-2">192.168.1.15</td>
+                        <td class="border px-4 py-2">192.168.1.16</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-4 py-2">/29</td>
+                        <td class="border px-4 py-2">255.255.255.248</td>
+                        <td class="border px-4 py-2">192.168.1.0</td>
+                        <td class="border px-4 py-2">192.168.1.1</td>
+                        <td class="border px-4 py-2">192.168.1.6</td>
+                        <td class="border px-4 py-2">192.168.1.7</td>
+                        <td class="border px-4 py-2">192.168.1.8</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-4 py-2">/30</td>
+                        <td class="border px-4 py-2">255.255.255.252</td>
+                        <td class="border px-4 py-2">192.168.1.0</td>
+                        <td class="border px-4 py-2">192.168.1.1</td>
+                        <td class="border px-4 py-2">192.168.1.2</td>
+                        <td class="border px-4 py-2">192.168.1.3</td>
+                        <td class="border px-4 py-2">192.168.1.4</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="bg-white p-6 rounded-lg shadow-lg mb-6">
+            <h2 class="text-xl font-bold mb-4">Subnet Calculator</h2>
+            <form id="subnetForm" class="space-y-4">
+                <div>
+                    <label for="ipAddress" class="block text-sm font-medium text-gray-700">IP Address</label>
+                    <input type="text" id="ipAddress" name="ipAddress" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="e.g., 192.168.1.1">
+                </div>
+                <div>
+                    <label for="subnetMask" class="block text-sm font-medium text-gray-700">Subnet Mask</label>
+                    <input type="text" id="subnetMask" name="subnetMask" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="e.g., 255.255.255.0">
+                </div>
+                <button type="button" onclick="calculateSubnet()" class="w-full bg-blue-600 text-white p-2 rounded-md">Calculate</button>
+            </form>
+            <div id="results" class="mt-4 hidden">
+                <h3 class="text-lg font-bold mb-2">Results</h3>
+                <p id="networkAddress" class="text-sm"></p>
+                <p id="firstHost" class="text-sm"></p>
+                <p id="lastHost" class="text-sm"></p>
+                <p id="broadcastAddress" class="text-sm"></p>
+                <p id="nextSubnet" class="text-sm"></p>
+            </div>
+        </section>
+        <section class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-bold mb-4">Instructions</h2>
+            <p class="mb-2">Subnetting is a process of dividing a network into smaller subnetworks. Here are the steps to calculate subnet information:</p>
+            <ol class="list-decimal list-inside space-y-2">
+                <li>Enter the IP address and subnet mask in the calculator above.</li>
+                <li>Click the "Calculate" button to get the results.</li>
+                <li>The results will show the network address, first host, last host, broadcast address, and the next subnet.</li>
+            </ol>
+        </section>
+    </main>
+    <footer class="bg-blue-600 text-white p-4 mt-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 Subnetting Cheatsheet. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        function calculateSubnet() {
+            const ipAddress = document.getElementById('ipAddress').value;
+            const subnetMask = document.getElementById('subnetMask').value;
+
+            if (!validateIP(ipAddress) || !validateIP(subnetMask)) {
+                alert('Please enter valid IP address and subnet mask.');
+                return;
+            }
+
+            const ipParts = ipAddress.split('.').map(Number);
+            const maskParts = subnetMask.split('.').map(Number);
+
+            const networkParts = ipParts.map((part, index) => part & maskParts[index]);
+            const broadcastParts = networkParts.map((part, index) => part | (~maskParts[index] & 255));
+
+            const networkAddress = networkParts.join('.');
+            const firstHost = [...networkParts.slice(0, 3), networkParts[3] + 1].join('.');
+            const lastHost = [...broadcastParts.slice(0, 3), broadcastParts[3] - 1].join('.');
+            const broadcastAddress = broadcastParts.join('.');
+            const nextSubnet = [...networkParts.slice(0, 3), networkParts[3] + (256 - maskParts[3])].join('.');
+
+            document.getElementById('networkAddress').innerText = 'Network Address: ' + networkAddress;
+            document.getElementById('firstHost').innerText = 'First Host: ' + firstHost;
+            document.getElementById('lastHost').innerText = 'Last Host: ' + lastHost;
+            document.getElementById('broadcastAddress').innerText = 'Broadcast Address: ' + broadcastAddress;
+            document.getElementById('nextSubnet').innerText = 'Next Subnet: ' + nextSubnet;
+
+            document.getElementById('results').classList.remove('hidden');
+        }
+
+        function validateIP(ip) {
+            const parts = ip.split('.');
+            return parts.length === 4 && parts.every(part => !isNaN(part) && part >= 0 && part <= 255);
+        }
+    </script>
+</body>
+</html>
