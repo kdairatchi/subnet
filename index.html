@@ -3,7 +3,7 @@
 <head>
     <title>Subnetting Cheatsheet</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -27,7 +27,7 @@
     <main class="container mx-auto p-4">
         <section class="bg-white p-6 rounded-lg shadow-lg mb-6">
             <h2 class="text-xl font-bold mb-4">Learn Subnetting IPv4 with Ease</h2>
-            <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+            <table id="cidrTable" class="min-w-full bg-white border border-gray-200 rounded-lg">
                 <thead>
                     <tr>
                         <th class="py-2 px-4 bg-gray-200 border-b">CIDR</th>
@@ -40,28 +40,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- CIDR Entries -->
-                    <script>
-                        const cidrData = [
-                            { "CIDR": "/1", "Subnet Mask": "128.0.0.0", "Network": "0.0.0.0", "First Host": "0.0.0.1", "Last Host": "127.255.255.254", "Broadcast": "127.255.255.255", "Next Subnet": "128.0.0.0" },
-                            { "CIDR": "/2", "Subnet Mask": "192.0.0.0", "Network": "0.0.0.0", "First Host": "0.0.0.1", "Last Host": "63.255.255.254", "Broadcast": "63.255.255.255", "Next Subnet": "64.0.0.0" },
-                            // Additional CIDR data will go here up to /32
-                        ];
-
-                        cidrData.forEach(cidr => {
-                            document.write(`
-                                <tr>
-                                    <td class="border px-4 py-2">${cidr.CIDR}</td>
-                                    <td class="border px-4 py-2">${cidr["Subnet Mask"]}</td>
-                                    <td class="border px-4 py-2">${cidr.Network}</td>
-                                    <td class="border px-4 py-2">${cidr["First Host"]}</td>
-                                    <td class="border px-4 py-2">${cidr["Last Host"]}</td>
-                                    <td class="border px-4 py-2">${cidr.Broadcast}</td>
-                                    <td class="border px-4 py-2">${cidr["Next Subnet"]}</td>
-                                </tr>
-                            `);
-                        });
-                    </script>
+                    <!-- Rows will be dynamically added here -->
                 </tbody>
             </table>
         </section>
@@ -71,5 +50,46 @@
             <p>&copy; 2023 Subnetting Cheatsheet. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+        function generateCIDRDetails() {
+            const tableBody = document.querySelector('#cidrTable tbody');
+
+            for (let cidr = 1; cidr <= 32; cidr++) {
+                const network = new Array(4).fill(0).join('.') + '/' + cidr;
+                const subnet = calcSubnet(cidr);
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td class="border px-4 py-2">/${cidr}</td>
+                    <td class="border px-4 py-2">${subnet.subnetMask}</td>
+                    <td class="border px-4 py-2">${subnet.networkAddress}</td>
+                    <td class="border px-4 py-2">${subnet.firstHost}</td>
+                    <td class="border px-4 py-2">${subnet.lastHost}</td>
+                    <td class="border px-4 py-2">${subnet.broadcastAddress}</td>
+                    <td class="border px-4 py-2">${subnet.nextSubnet}</td>
+                `;
+                tableBody.appendChild(row);
+            }
+        }
+
+        function calcSubnet(cidr) {
+            const hostBits = 32 - cidr;
+            const totalHosts = Math.pow(2, hostBits);
+            const subnetMask = Array.from({ length: 4 }, (_, i) =>
+                cidr > i * 8 ? 255 - ((1 << (8 - Math.min(cidr - i * 8, 8))) - 1) : 0
+            ).join('.');
+
+            return {
+                subnetMask,
+                networkAddress: '0.0.0.0', // Placeholder values
+                firstHost: '0.0.0.1',
+                lastHost: 'Placeholder',
+                broadcastAddress: 'Placeholder',
+                nextSubnet: 'Placeholder'
+            };
+        }
+
+        window.onload = generateCIDRDetails;
+    </script>
 </body>
 </html>
